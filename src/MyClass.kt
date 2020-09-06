@@ -5,23 +5,17 @@
 //
 // 주요생성자는 constructor 생략 가능
 
-class User5(name: String){
-    init {
-        println("I am init block $name")
-    }
-
-    constructor(name :String, age: Int): this(name){
-        println("I am constructor.....$name...$age")
-    }
-
-    constructor(name :String, age: Int, email :String): this(name, age){
-        println("$name,   $age,  $email")
-    }
+class User {
+    var name :String = "choi"
+    val age :Int = 25
 
 }
 
 fun main(args: Array<String>){
-    val user6 = User5("choi") // 주 생성자
-    val user7 = User5("choi", 25)
-    val user8 = User5("choi", 35, "dudals3844")
+    val user = User()
+
+    user.name = "choi"
+
+    println("${user.name}")
+    println("${user.age}")
 }
