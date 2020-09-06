@@ -7,19 +7,18 @@
 class Person(firstName: String){
 
 }
+// 기본 생성자
+class User1{
 
-class User4(name: String, age: Int){
-    val myName = name
-    // 생성자 초기화 블록
-    init {
-        println("I am init")
+}
+// 주생성자
+class User2(name: String){
 
-        println("$name,     $age")
-    }
+}
 
-    fun sayHello(){
-        println("hello $myName")
-    }
+//보조 생성자
+class User3{
+    constructor(name: String)
 }
 fun main(args: Array<String>){
   val user4 = User4(name = "choi", age = 24)
