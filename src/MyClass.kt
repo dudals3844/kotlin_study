@@ -1,26 +1,33 @@
 import kotlin.properties.Delegates
 
 
-interface MyInterface{
-    var data1 :String
-    fun myFun1(){
-        println("this is myFun1")
-    }
-    fun myFun2(){
+interface MyInterface1{
+    fun myFun1()
+}
 
-    }
+interface MyInterface2{
+    fun myFun2()
+}
+
+interface MyInterface3: MyInterface1, MyInterface2{
+    fun myFun3()
 }
 
 
-class MyClass: MyInterface{
-    override var data1 :String = "hello"
+class MyClass: MyInterface3{
+    override fun myFun1() {
+        TODO("Not yet implemented")
+    }
+
     override fun myFun2() {
-        println("this is myFun2")
+        TODO("Not yet implemented")
+    }
+
+    override fun myFun3() {
+        TODO("Not yet implemented")
     }
 }
 
 fun main(args: Array<String>){
-    val obj = MyClass()
-    obj.myFun1()
-    obj.myFun2()
+    )
 }
