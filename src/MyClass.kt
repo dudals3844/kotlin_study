@@ -1,35 +1,24 @@
 import kotlin.properties.Delegates
 
-
-interface MyInterface10{
-    fun myInterfaceFun()
+interface Interface1{
+    fun funA()
 }
 
-open class Super1{
-    fun mySuperFunc(){
-        println("mySuperFun")
+interface Interface2{
+    fun funA()
+}
+
+open abstract class Super2{
+    abstract fun funA()
+}
+
+class Sub2: Super2(), Interface1, Interface2{
+    override fun funA(){
+        println("Sub2 funA....")
     }
 }
-
-class Sub1: Super1(), MyInterface10{
-    override fun myInterfaceFun() {
-        println("myInterfaceFun cal.....")
-    }
-}
-
 
 fun main(args: Array<String>){
-    val obj1: Sub1 = Sub1()
-    val obj2: Super1 = Sub1()
-    val obj3: MyInterface10 = Sub1()
-
-    obj1.mySuperFunc()
-    obj1.myInterfaceFun()
-
-    obj2.mySuperFunc()
-//    obj2.myInterfaceFun() //error
-
-//    obj3.mySuperFunc() //error
-    obj3.myInterfaceFun()
-
+    val obj1 = Sub2()
+    obj1.funA()
 }
