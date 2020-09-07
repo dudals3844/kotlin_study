@@ -1,14 +1,47 @@
 import kotlin.properties.Delegates
 
-class Shape {
+open class Shape {
     var x :Int = 0
+        set(value) {
+            if(value < 0) field = 0
+            else field = value
+        }
     var y :Int = 0
-    var name :String = "Rect"
+        set(value) {
+            if (value < 0) field = 0
+            else field = value
+        }
 
-    fun draw(){
-        println("draw: $name : location: $x, $y")
+    lateinit var name :String
+
+    fun print(){
+        println("$name : location: $x $y")
     }
 }
+
+class Rect: Shape(){
+    var width :Int = 0
+        set(value) {
+            if (value < 0) field = 0
+            else field = value
+        }
+
+    var height :Int = 0
+        set(value) {
+            if (value < 0) field = 0
+            else field = value
+        }
+}
+
+class Circle: Shape(){
+    var r :Int = 0
+        set(value) {
+            if (value < 0) field = 0
+            else field = value
+        }
+}
+
+
 
 
 fun main(args: Array<String>){
