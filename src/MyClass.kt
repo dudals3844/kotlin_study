@@ -5,27 +5,32 @@
 //
 // 주요생성자는 constructor 생략 가능
 
-class User{
-    var data: String
-    val data2: Int
+val someData: String by lazy {
+    println("I am someData lazy....")
+    "hello"
+}
+
+class User1{
+    val name: String by lazy {
+        println("I am name lazy")
+        "choi"
+    }
+
+    val age: Int by lazy {
+        println("I am age lazy")
+        24
+    }
+
     init {
-        data = "choi"
-        data2 = 10
+        println("I am init")
+    }
+    constructor(){
+        println("I am constructor")
+
     }
 }
-
-class User1 {
-    val name1: String = "choi"
-    val name2: String? = null
-    val name3: String? = null
-    val age: Int? = null
-
-}
-
 fun main(args: Array<String>){
     val user1 = User1()
-    user1.greeting = "choi"
-    println(user1.greeting)
-    user1.age = -24
-    println("${user1.age}")
+    println(user1.name)
+    println(user1.age)
 }
