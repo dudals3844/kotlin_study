@@ -1,23 +1,26 @@
 import kotlin.properties.Delegates
 
-open class Super {
-    open var x :Int = 10
-    open fun someFun(){
-        println("Super...someFunc()")
+open class Super{
+    constructor(name :String, no :Int){
+        println("Super... constructor(name $name, no $no)")
+    }
+    init {
+        println("Super .... init call")
     }
 }
 
-
-class Sub :Super(){
-    override var x :Int = 20
-    override fun someFun() {
-        super.someFun()
-        println("Sub....${super.x}.....$x")
+class Sub(name :String): Super(name, 10){
+    constructor(name: String, no :Int): this(name){
+        println("Sub... constructor(name $name, no $no) call")
+    }
+    init {
+        println("Sub ... init call")
     }
 }
-
 
 fun main(args: Array<String>){
-    var sub = Sub()
-    sub.someFun()
+    Sub("choi")
+    println("--------")
+    Sub("min", 24)
+
 }
