@@ -1,22 +1,26 @@
 import kotlin.properties.Delegates
 
 
-abstract class AbstractTest1{
-    val data1 :Int = 10
-    abstract val data2 :Int
+interface MyInterface{
+    var data1 :String
     fun myFun1(){
+        println("this is myFun1")
+    }
+    fun myFun2(){
 
     }
-    abstract fun myFun2()
 }
 
-class Sub: AbstractTest1(){
-    override val data2 :Int = 15
+
+class MyClass: MyInterface{
+    override var data1 :String = "hello"
     override fun myFun2() {
-        TODO("Not yet implemented")
+        println("this is myFun2")
     }
 }
 
 fun main(args: Array<String>){
-    val obj1 = Sub()
+    val obj = MyClass()
+    obj.myFun1()
+    obj.myFun2()
 }
