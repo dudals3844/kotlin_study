@@ -1,24 +1,18 @@
 import kotlin.properties.Delegates
 
-interface Interface1{
-    fun funA()
-}
+class Product(val name :String, val price :Int)
 
-interface Interface2{
-    fun funA()
-}
+data class User(val name:String, val age :Int)
 
-open abstract class Super2{
-    abstract fun funA()
-}
 
-class Sub2: Super2(), Interface1, Interface2{
-    override fun funA(){
-        println("Sub2 funA....")
-    }
-}
 
 fun main(args: Array<String>){
-    val obj1 = Sub2()
-    obj1.funA()
+    var product = Product("prod1", 100)
+    var product1 = Product("prod1", 100)
+    println(product.equals(product1))
+
+    var user = User("choi", 30)
+    var user1 = User("choi", 30)
+
+    println(user.equals(user1))
 }
