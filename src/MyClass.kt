@@ -1,23 +1,21 @@
 import kotlin.properties.Delegates
 
-//주요 생성자
-//class Person constructor(firstName: String){
-//
-//}
-//
-// 주요생성자는 constructor 생략 가능
+class Shape {
+    var x :Int = 0
+    var y :Int = 0
+    var name :String = "Rect"
 
-class User {
-    var name: String by Delegates.observable("nonValue", {props, old, new ->
-        println("old $old ..... new $new")
-    })
+    fun draw(){
+        println("draw: $name : location: $x, $y")
+    }
 }
 
 
 fun main(args: Array<String>){
-    val user = User()
-    println(user.name)
-    user.name = "choi"
-    user.name = "young"
-    println(user.name)
+    val obj1: Any = Shape()
+    val obj2: Any = Shape()
+
+    val obj3 = obj1
+    println("${obj1.equals(obj2)}")
+    println("${obj1.equals(obj3)}")
 }
