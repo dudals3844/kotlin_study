@@ -5,21 +5,20 @@
 //
 // 주요생성자는 constructor 생략 가능
 
-class User1 {
-    var greeting :String = "Hello"
-        set(value) {
-            field = "Hello" + value
-        }
-        get() = field.toUpperCase()//대문자로 바꿔준다
+class User{
+    var data: String
+    val data2: Int
+    init {
+        data = "choi"
+        data2 = 10
+    }
+}
 
-    var age: Int = 0
-        set(value) {
-            if (value > 0){
-                field = value
-            } else {
-                field = 0
-            }
-        }
+class User1 {
+    val name1: String = "choi"
+    val name2: String? = null
+    val name3: String? = null
+    val age: Int? = null
 
 }
 
