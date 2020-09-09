@@ -5,15 +5,15 @@ import kotlin.properties.Delegates
 
 //null 안정성
 
-var data1: String = "choi"
-var data2: String? = null
-
-fun myFun(arg: String){
-
-}
-
 fun main(args: Array<String>){
-//    data2 = "hello"
-    val data3: String? = data1
-    println(data2)
+    var data1: String? = "choi"
+    val length1: Int? = if(data1 != null){
+        data1.length
+    } else{
+        null
+    }
+    println(length1)
+
+    var length2: Int? = data1?.length
+    println(length2)
 }
