@@ -4,22 +4,13 @@ import java.nio.file.attribute.UserDefinedFileAttributeView
 import kotlin.properties.Delegates
 
 
-fun normalFun(x1: Int, x2: Int):Int{
-    return x1 + x2
-}
-
-
-fun hoFunc(argFun: (Int) -> Int){
-    val result = argFun(10)
-    println("result: $result")
+fun hoFunc(no: Int, argFun1: (Int)-> Int, argFun2: (Int) -> Boolean){
+    println("$no .... ${argFun1(no)}.....${argFun2(no)}")
 }
 
 
 
 fun main(args: Array<String>){
-    hoFunc({x -> x*x})
-    val array = arrayOf(10, 20, 15, 22, 8)
-    array.filter { x -> x > 10 }
-            .forEach{x -> println(x)}
+    hoFunc(10, {it * it}, {it > 10})
 
 }
