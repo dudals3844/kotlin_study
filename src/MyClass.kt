@@ -3,32 +3,17 @@ import java.net.spi.URLStreamHandlerProvider
 import java.nio.file.attribute.UserDefinedFileAttributeView
 import kotlin.properties.Delegates
 
+//null 안정성
 
+var data1: String = "choi"
+var data2: String? = null
 
-class User(){
-    var name: String? = null
-    var age: Int? = null
+fun myFun(arg: String){
 
-    fun sayHello(){
-        println("hello $name")
-    }
-    fun sayInfo(){
-        println("I am $name, $age years old")
-    }
 }
 
 fun main(args: Array<String>){
-    val user = User()
-    val user3 = user.apply {
-        name = "choi"
-        sayHello()
-        sayInfo()
-    }
-
-
-    println("user name: ${user.name}... ${user3.name}")
-    user.name = "aaa"
-    user3.name = "bbb"
-    println("user name: ${user.name}... ${user3.name}")
-
+//    data2 = "hello"
+    val data3: String? = data1
+    println(data2)
 }
