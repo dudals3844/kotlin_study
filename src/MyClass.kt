@@ -2,16 +2,14 @@ import java.nio.file.attribute.UserDefinedFileAttributeView
 import kotlin.properties.Delegates
 
 
-data class User(val name:String, val age :Int)
-
+enum class Direction{
+    NORTH, SOUTH, WEST, EAST
+}
 
 
 fun main(args: Array<String>){
-    var user = User("choi", 25)
-
-    println(user.toString())
-
-    var user2 = user.copy(name = "young")
-    println(user2.toString())
-
+    val direction: Direction = Direction.NORTH
+    println("${direction.name}.... ${direction.ordinal}")
+    val directions :Array<Direction> = Direction.values()
+    directions.forEach { t -> println(t.name) }
 }
