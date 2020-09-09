@@ -6,14 +6,16 @@ import kotlin.properties.Delegates
 //null 안정성
 
 fun main(args: Array<String>){
-    var data1: String? = "choi"
-    val length1: Int? = if(data1 != null){
-        data1.length
-    } else{
-        null
+    val array = arrayOf("hello", null, "kkang")
+    array.forEach {
+        if (it != null){
+            print(" $it ..... ${it.length}")
+        }
     }
-    println(length1)
 
-    var length2: Int? = data1?.length
-    println(length2)
+    array.forEach {
+        it?.let {
+            println("$it......${it.length}")
+        }
+    }
 }
