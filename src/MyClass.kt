@@ -12,19 +12,15 @@ import kotlin.properties.Delegates
 //}
 
 
-class MyClass2<T>(no:T){
-    var no = no
-    var info: T? = null
-    fun sayInfo(){
-        println("$no ..... $info")
+class MathUtil<T: Number>{
+    fun plus(arg1: T, arg2: T): Double{
+        return arg1.toDouble() + arg2.toDouble()
     }
 }
 
 fun main(args: Array<String>){
-    val obj3 = MyClass2<Int>(10)
-    obj3.info = 20
-    obj3.sayInfo()
-    val obj4 = MyClass2("hello")
-    obj4.info = "world"
-    obj4.sayInfo()
+    val obj = MathUtil<Int>()
+    var add = obj.plus(10, 20)
+    println(add)
+    val obj2 = MathUtil<Double>()
 }
