@@ -18,20 +18,17 @@ class User(){
 }
 
 fun main(args: Array<String>){
-    var user = User()
-    user.name = "choi"
-    user.age = 25
-    user.sayHello()
-    user.sayInfo()
-
-
-    val runResult = user.run {
-        name = "young"
-        age = 24
+    val user = User()
+    val user3 = user.apply {
+        name = "choi"
         sayHello()
         sayInfo()
-        10 + 20
     }
 
-    println("run result: $runResult")
+
+    println("user name: ${user.name}... ${user3.name}")
+    user.name = "aaa"
+    user3.name = "bbb"
+    println("user name: ${user.name}... ${user3.name}")
+
 }
