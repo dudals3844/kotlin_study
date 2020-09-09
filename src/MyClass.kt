@@ -4,23 +4,26 @@ import java.net.spi.URLStreamHandlerProvider
 import java.nio.file.attribute.UserDefinedFileAttributeView
 import kotlin.properties.Delegates
 
-class Test{
-    companion object{
-        var data1: Int = 10
-        fun myFun1(){
-            println("companion object myFun1....")
-        }
-    }
-}
-val Test.Companion.data2: Int
-    get() = 20
+// 제네릭
+//타입을 예측할 수 없는 경우
 
-fun Test.Companion.myFunc2(){
-    println("extension myFun2...")
+//class MyClass{
+//    var info: String? = null
+//}
+
+
+class MyClass<T>{ //T는 무슨 타입인지 모를때 제네릭 선언
+    var info: T? = null
+    fun sayInfo(){
+        println(info)
+    }
 }
 
 fun main(args: Array<String>){
-    println("data1:  ${Test.data1}..data2: ${Test.data2}")
-    Test.myFun1()
-    Test.myFunc2()
+    val obj1 =MyClass<String>()
+    obj1.info = "hello"
+    obj1.sayInfo()
+    val obj2 = MyClass<Int>()
+    obj2.info = 10
+    obj2.sayInfo()
 }
