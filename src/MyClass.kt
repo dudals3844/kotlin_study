@@ -9,13 +9,17 @@ fun normalFun(x1: Int, x2: Int):Int{
 }
 
 
-fun hoFunc(x1: Int, argFun:(Int) -> Int){
-    val result = argFun(x1)
-    println("x1: $x1,  someFun1: $result")
+fun hoFunc(argFun: (Int) -> Int){
+    val result = argFun(10)
+    println("result: $result")
 }
 
 
 
 fun main(args: Array<String>){
-    hoFunc(30, {x -> x*x})
+    hoFunc({x -> x*x})
+    val array = arrayOf(10, 20, 15, 22, 8)
+    array.filter { x -> x > 10 }
+            .forEach{x -> println(x)}
+
 }
