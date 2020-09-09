@@ -2,16 +2,27 @@ import java.nio.file.attribute.UserDefinedFileAttributeView
 import kotlin.properties.Delegates
 
 
-enum class Direction(var no: Int, val str: String){
-    NORTH(1,"north"), SOUTH(2,"south"), WEST(3,"west"), EAST(4,"east")
+enum class Direction{
+    NORTH{
+        override val data1: Int = 10
+        override fun myFun(){
+            println("north myFun")
+        }
+    },
+    SOUTH{
+        override val data1: Int = 20
+        override fun myFun(){
+            println("south myFun")
+        }
+    };
+    abstract val data1: Int
+    abstract fun myFun()
 }
 
 
 fun main(args: Array<String>){
     val direction: Direction = Direction.NORTH
-    println("${direction.no}....${direction.str}")
-
-    direction.no = 10
-    println("${direction.no}....${direction.str}")
+    println(direction.data1)
+    direction.myFun()
 
 }
