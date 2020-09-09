@@ -4,16 +4,16 @@ import java.net.spi.URLStreamHandlerProvider
 import java.nio.file.attribute.UserDefinedFileAttributeView
 import kotlin.properties.Delegates
 
-open class Super{
-    open fun sayHello(){
-        println("Super1....sayHello")
-    }
+open class Super
+
+class Sub: Super()
+
+fun Super.sayHello(){
+    println("Super.sayHello()")
 }
 
-class Sub: Super(){
-    override fun sayHello() {
-        println("Sub1.....sayHello")
-    }
+fun Sub.sayHello(){
+    println("Sub..sayHello()")
 }
 
 fun some(obj: Super){
