@@ -4,14 +4,18 @@ import java.nio.file.attribute.UserDefinedFileAttributeView
 import kotlin.properties.Delegates
 
 
-sealed class Shape{
-    class Circle(val radius: Double): Shape()
-    class Rect(val width: Int, val height: Int): Shape()
+fun normalFun(x1: Int, x2: Int):Int{
+    return x1 + x2
 }
 
-class Triangle(val bottom: Int , val height: Int): Shape()
+
+fun hoFunc(x1: Int, argFun:(Int) -> Int){
+    val result = argFun(x1)
+    println("x1: $x1,  someFun1: $result")
+}
+
+
 
 fun main(args: Array<String>){
-    val shape1: Shape = Shape.Circle(10.0)
-    val shape2: Shape = Triangle(10, 4)
+    hoFunc(30, {x -> x*x})
 }
