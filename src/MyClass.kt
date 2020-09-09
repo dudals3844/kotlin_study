@@ -5,13 +5,22 @@ import java.nio.file.attribute.UserDefinedFileAttributeView
 import kotlin.properties.Delegates
 
 class Test{
-    val classData: Int = 0
+    companion object{
+        var data1: Int = 10
+        fun myFun1(){
+            println("companion object myFun1....")
+        }
+    }
+}
+val Test.Companion.data2: Int
+    get() = 20
+
+fun Test.Companion.myFunc2(){
+    println("extension myFun2...")
 }
 
-val Test.extensionData2: Int
-    get() = 10
-
 fun main(args: Array<String>){
-    val obj = Test()
-    println("classData ${obj.classData}... extensionData2: ${obj.extensionData2}")
+    println("data1:  ${Test.data1}..data2: ${Test.data2}")
+    Test.myFun1()
+    Test.myFunc2()
 }
