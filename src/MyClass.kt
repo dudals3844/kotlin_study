@@ -12,18 +12,19 @@ import kotlin.properties.Delegates
 //}
 
 
-class MyClass<T>{ //T는 무슨 타입인지 모를때 제네릭 선언
+class MyClass2<T>(no:T){
+    var no = no
     var info: T? = null
     fun sayInfo(){
-        println(info)
+        println("$no ..... $info")
     }
 }
 
 fun main(args: Array<String>){
-    val obj1 =MyClass<String>()
-    obj1.info = "hello"
-    obj1.sayInfo()
-    val obj2 = MyClass<Int>()
-    obj2.info = 10
-    obj2.sayInfo()
+    val obj3 = MyClass2<Int>(10)
+    obj3.info = 20
+    obj3.sayInfo()
+    val obj4 = MyClass2("hello")
+    obj4.info = "world"
+    obj4.sayInfo()
 }
