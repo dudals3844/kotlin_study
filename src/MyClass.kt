@@ -11,22 +11,36 @@ import kotlin.properties.Delegates
 
 //타입제한 복습
 
-open class Super
+class MyClass<T>(val data: T){
+    fun myFun(): T{
+        return data
+    }
+    fun myFun2(arg: T){
 
-class Sub: Super()
-
-class MyClass<in T>(){
-//    val myVal: T? = null val 프로퍼티 불가
-//    var myVal2: T? = null var 프로퍼티 불가
-//    fun myFun(): T?{
-//        return null
-//    } 함수 리턴 타입으로 사용 불가
-    fun myFun3(arg: T){}//매개변수 타입으로 선언가능
+    }
+    fun myFun3(arg: T): T{
+        return data
+    }
 }
 
+fun some2(arg: MyClass<out Number>){
+    arg.myFun()
+//    arg.myFun2() 타입을 모른다고 에러남
+//    arg.myFun3(10)
+}
+
+class Test<T>(val num: T){
+    fun test(arg: T): T{
+        return arg
+    }
+}
+
+
 fun main(args: Array<String>){
-    val obj = MyClass<Sub>()
-//    val obj2: MyClass<Super> = obj error
-    val obj3 = MyClass<Super>()
-    val obj4: MyClass<Sub> = obj3
+    some2(MyClass<Number>(10))
+    some2(MyClass<Int>(10))
+
+    var test = Test<Int>(5)
+    println(test.test(4))
+
 }
