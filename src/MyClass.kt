@@ -11,15 +11,24 @@ import kotlin.properties.Delegates
 
 //타입제한 복습
 
-class MathUtil<T: Number>{//숫자에 관련된 타입으로 제약한다
-    fun plus(arg1: T, arg2: T): Double{
-        return arg1.toDouble() + arg2.toDouble()
+open class Super
+
+class Sub: Super()
+
+class MyClass<out T>(val data: T){
+    val myVal: T? = null
+//    var myVal2: T? = null 변수 프로퍼티는 사용불가
+    fun myFun(): T{
+        return data
     }
+
+//    fun myFun3(arg: T){ } 매개변수 타입으로는 사용불가
+
 }
 
-fun main(args: Array<String>){
-    val obj = MathUtil<Int>()
-    obj.plus(10, 20)
 
-    val obj2 = MathUtil<Double>()
+fun main(args: Array<String>){
+    val obj = MyClass<Sub>(Sub())
+    val obj2: MyClass<Super> = obj //Super인 상위 타입에서는 대입이 가능하다
+
 }
