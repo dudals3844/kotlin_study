@@ -7,16 +7,23 @@ import kotlin.properties.Delegates
 // 제네릭
 //타입을 예측할 수 없는 경우
 
-class MyClass<T>{
-    fun myFun(arg1: T, arg2: T){
-        println(arg1?.equals(arg2))
+
+open class Super{
+    open fun sayHello(){
+        println("I am sayHello")
+    }
+}
+
+class Sub: Super(){
+    override fun sayHello() {
+        println("I am sub sayHello...")
     }
 }
 
 fun main(args: Array<String>){
-    val obj = MyClass<String>()
-    obj.myFun("hello", "hello")
-    val obj2 = MyClass<Int?>()
-    obj2.myFun(null, 10)
+    val obj: Super = Sub()
+    obj.sayHello()
 
+    val obj2: Sub = obj as Sub
+    obj2.sayHello()
 }
