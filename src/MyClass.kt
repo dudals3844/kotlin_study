@@ -20,14 +20,26 @@ import kotlin.reflect.KProperty
 //
 //val myVal3: Class<*> = String::class.java
 
-annotation class TestAnnotation
+annotation class TestAnnotation(val count: Int)
 
-class Test @TestAnnotation constructor(){
-    @TestAnnotation
-    val myVal: Int = 10
-    var myVal2: Int = 10
-        @TestAnnotation set(value) {field = value}
-    val myFun = @TestAnnotation{
+class Test{
+    @TestAnnotation(count = 3)
+    fun some(){
+        println("Some....")
+    }
+}
 
+fun main(args: Array<String>){
+    val obj: Test = Test()
+    val methods = Test::class.java!!.methods
+
+    for (method in methods){
+        if (method.isAnnotationPresent(TestAnnotation::class.java)){
+            val annotation = method.getAnnotation(TestAnnotation::class.java)
+            val count = annotation.count
+            for (i in 1..count){
+                obj.some()
+            }
+        }
     }
 }
