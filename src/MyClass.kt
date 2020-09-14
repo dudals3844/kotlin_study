@@ -20,17 +20,14 @@ import kotlin.reflect.KProperty
 //
 //val myVal3: Class<*> = String::class.java
 
+annotation class TestAnnotation
 
-val myVal:Int = 10
-var myVar: Int = 10
+class Test @TestAnnotation constructor(){
+    @TestAnnotation
+    val myVal: Int = 10
+    var myVal2: Int = 10
+        @TestAnnotation set(value) {field = value}
+    val myFun = @TestAnnotation{
 
-val referenceVal1: KProperty<*> = ::myVal
-val referenceVal2: KProperty<*> = ::myVar
-
-//val referenceVal4: KMutableProperty<*> = ::myVar
-fun main(args: Array<String>){
-    println(::myVal.get())
-    ::myVar.set(40)
-    println(::myVar.get())
-    println(::myVal.isFinal)
+    }
 }
