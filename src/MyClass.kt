@@ -1,30 +1,23 @@
 import kotlin.reflect.KClass
+import kotlin.system.exitProcess
+import kotlin.time.TestClock
 
 //
 ////어노테이션
 //
-//val myVal: KClass<*> = String::class
-//fun myFun(arg: KClass<*>){
-//
-//}
-//
-//val myVal2: KClass<String> = String::class
-//
-//val myVal3: Class<*> = String::class.java
 
-annotation class TestAnnotation1(val count: Int)
+//추상함수
+abstract class AbstractTest1{
+    fun myFun1(){
 
-annotation class TestAnnotation2(val otherAnn:TestAnnotation1, val arg1: KClass<*>)
-
-class User
-
-@TestAnnotation1(10)
-@TestAnnotation2(TestAnnotation1(20), String::class)
-
-class Test{
-
+    }
+    abstract fun myFun2()
 }
 
-const val myData: Int = 10
-@TestAnnotation1(myData)
-class Test2{}
+//추상 프로퍼티
+abstract class AbstractTest2{
+    val data1: String = "choi"
+    abstract val data2: String
+}
+
+
