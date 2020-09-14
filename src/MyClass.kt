@@ -1,23 +1,30 @@
 import kotlin.reflect.KClass
 import kotlin.system.exitProcess
-import kotlin.time.TestClock
 
 //
 ////어노테이션
 //
 
-//추상함수
-abstract class AbstractTest1{
+abstract class Super{
+    val data1: Int = 10
+    abstract val data2: Int
+
     fun myFun1(){
 
     }
+
     abstract fun myFun2()
+
 }
 
-//추상 프로퍼티
-abstract class AbstractTest2{
-    val data1: String = "choi"
-    abstract val data2: String
+class Sub: Super(){
+    override val data2: Int = 10
+    override fun myFun2() {
+
+    }
 }
 
 
+fun main(args: Array<String>){
+    val obj1 = Sub()
+}
