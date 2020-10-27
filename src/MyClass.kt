@@ -1,27 +1,24 @@
-import kotlin.reflect.KClass
-import kotlin.system.exitProcess
-
-//
-////어노테이션
-//
-interface MyInterface4{
-    fun myFun4()
-
-}
-
-interface MyInterface5{
-    fun myFun5()
-}
-
-class MyClass4: MyInterface4, MyInterface5{
-    override fun myFun4() {
-    }
-
-    override fun myFun5() {
-
-    }
-}
+import java.awt.event.MouseAdapter
+import java.io.*
+import java.net.Socket
 
 fun main(args: Array<String>){
+    var testmap: MutableMap<String, Int> = mutableMapOf(Pair("choi",1), Pair("young", 2), Pair("min",3))
+    testmap.put("i", 3)
 
+    println(testmap)
 }
+
+open class A{
+    private var a: Int
+    constructor(a: Int){
+        this.a = a
+
+    }
+
+    fun printA(){
+        println(a)
+    }
+}
+
+
