@@ -1,24 +1,33 @@
 import java.awt.event.MouseAdapter
 import java.io.*
 import java.net.Socket
+import kotlin.math.atan2
 
 fun main(args: Array<String>){
-    var testmap: MutableMap<String, Int> = mutableMapOf(Pair("choi",1), Pair("young", 2), Pair("min",3))
-    testmap.put("i", 3)
-
-    println(testmap)
-}
-
-open class A{
-    private var a: Int
-    constructor(a: Int){
-        this.a = a
-
+    val a = 5
+    if(a < 10){
+        println("$a < 10")
+    } else if (a > 10 && a <= 20){
+        println("10 < $a <= 20")
     }
 
-    fun printA(){
-        println(a)
+
+    //switch랑 비슷
+    when(a){
+        5 -> println("Hello")
     }
+
+    for(i in 1..10){
+        println(i)
+    }
+
+    var list = listOf("Hello", "World", "!!")
+    val sb = StringBuffer()
+    for (str in list){
+        sb.append(str)
+    }
+    print(sb)
 }
+
 
 
